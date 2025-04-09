@@ -71,11 +71,7 @@ def main(page: ft.Page):
             text_result.value = ("Valor Inválido!")
             page.update()
             page.go("/resultado")
-        except TypeError:
-            text_result.value = ("Tipo Inválido!")
-            page.update()
-            page.go("/resultado")
-
+       
     def gerenciar_rotas(e):
         page.views.clear()
         page.views.append(
@@ -114,6 +110,8 @@ def main(page: ft.Page):
                     [
                         AppBar(title=Text("Resultado"), bgcolor=Colors.PRIMARY_CONTAINER),
                         text_result,
+                        ElevatedButton("Nova Simulação", on_click=lambda _: page.go("simulacao")),
+                        ElevatedButton("Voltar ao Menu", on_click=lambda _: page.go("/")),
                     ]
 
                 )
